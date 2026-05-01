@@ -1,3 +1,30 @@
+<!--
+Reviewer-Readiness Summary (delete this comment block before production deploy)
+
+WHAT IS LOCKED (do not edit without re-opening the lock):
+- Canonical claim verbatim form: "Product Org OS v5.0 implements the Decision Provenance Standard's reporter protocol at Conformance Level 3."
+- 5 acceptable phrasings; 10 forbidden phrasings absent throughout
+- "Vision to Value" full spelling in all human-facing prose; v2v retained only in /v2v/ API path
+- Version stamp v5.0.0 (Yohay 2026-04-30 override; Stream G GO verdict)
+- v4.0.1 -> v5.0.0 jump explainer paragraph
+- Skill counts harmonized at 133; knowledge packs unchanged at 28; 12 agents
+
+WHAT IS PENDING YOHAY CONFIRMATION:
+- Skill count mismatch in source: README front-matter says 133 throughout; existing CHANGELOG.md is silent on v4.x; CLAUDE.md says current 4.0.1. This README harmonizes at 133 per Wave 1 README-diff.md decision. Confirm at draft URL review.
+- Path A (decisionprovenance.ai) vs Path B (executiveoperatingsystems.org/standard/) for Standard hub URL. This README ships Path A wording with Path B fallback note. Confirm at Day 4 domain decision.
+- "Interactive Presentation" link target unchanged at https://yohayetsion.github.io/product-org-os; that surface IS the production marketing site per Wave 2 addendum item 7. No separate marketing domain.
+
+WHAT NEEDS PMM-DIR CONFORMANCE-LANGUAGE PASS:
+- All 5 acceptable phrasings used correctly in §Quick Start, §What's in this repo, §What's Included, §What's New
+- Zero forbidden phrasings as affirmative claims (verified by grep at sign-off; forbidden phrasings appear ONLY in negation enumeration in the v5.0.0 What's New section)
+- Cross-artifact veto authority not invoked
+
+WHAT IS PENDING YOHAY APPROVAL AT DRAFT URL:
+- Draft branch deploys to https://yohayetsion.github.io/product-org-os-draft/
+- Yohay reviews; production push to main -> https://yohayetsion.github.io/product-org-os/ only after explicit approval
+- Cache-invalidation 10-step checklist (DEPLOY-PLAN.md §3.B) executes on production push
+-->
+
 # Product Org OS
 
 **An entire product organization that becomes your superpower.**
@@ -137,7 +164,7 @@ Product and Product Leadership Team — route to relevant agents automatically
 ### 133 Skills
 PRDs, roadmaps, business cases, GTM strategies, pricing models, launch plans, QBR decks, competitive analyses, decision records, ROI tracking, plus 31 strategy frameworks including Porter's Five Forces, Blue Ocean, SWOT, PESTLE, Business Model Canvas, Lean Canvas, Shape Up, Wardley Maps, Seven Powers, Kano Analysis, OKR Writer, and more. Plus CRO skills, marketing psychology, programmatic SEO, email sequences, and GEO/LLM SEO.
 
-**Eight named structural-primitive skills aligned to the Vision to Value Standard in v5.0** — `/decision-charter`, `/decision-record`, `/escalation-rule`, `/ownership-map`, `/customer-value-trace`, `/collaboration-check`, `/scale-check`, `/phase-check` — emit Conformance Level 1, 2, and 3 signals. The remaining ~125 ancillary skills receive Mode-awareness and disclosure-metadata field alignment in v5.1 (4-6 weeks post-launch). v5.1 is not load-bearing for the Conformance Level 3 claim.
+**Eight named structural-primitive skills aligned to the Vision to Value Standard in v5.0** — `/decision-charter`, `/decision-record`, `/escalation-rule`, `/ownership-map`, `/customer-value-trace`, `/collaboration-check`, `/scale-check`, `/phase-check` — emit Conformance Level 1, 2, and 3 signals. The remaining ~125 ancillary skills receive Mode-awareness and disclosure-metadata field alignment in v5.1 (4-6 weeks after v5.0.0 is published). v5.1 is not load-bearing for the Conformance Level 3 claim.
 
 ### 28 Knowledge Packs
 Professional frameworks that agents load automatically based on task context — covering prioritization, pricing, discovery, metrics, competitive analysis, GTM playbooks, stakeholder management, user research, financial modeling, and more.
@@ -180,7 +207,7 @@ Six phases from strategic intent to learning loop, with skills mapped to each ph
 **The runnable substrate behind the canonical claim.** v5.0.0 is a major-version release marking Product Org OS's alignment to the Decision Provenance Standard v1.0. The version jump from v4.0.1 to v5.0.0 (skipping the v4.x release line) reflects the load-bearing nature of the Standard alignment: the OS now ships the runnable substrate at `standard/v5.0/` for the Conformance Level 3 claim, which is a substantive scope expansion beyond the v4.x line.
 
 - **`standard/v5.0/` alignment bundle** — Charter 5-state machine, decision-record lifecycle, Article 50 disclosure metadata schema (5 required fields), Conformance Reporter API (OpenAPI 3.1) at `POST /v2v/conformance/charter-escalation`, signal vocabulary across Levels 1/2/3
-- **Four-layer Mode-Drift Composed Mitigation** — Layer 1 statistical detection (scaffolding in v5.0; enforcement at v5.0 lifecycle Week 7+), Layer 2 in-flow audit hook (hot day-one), Layer 3 Mode-Confirmation Audit primitive with `review-required` interrupt (hot day-one), Layer 4 named human-attestation (hot day-one) with 8 required sub-fields and 4 jurisdictional variants (US/UK/EU/IL)
+- **Four-layer Mode-Drift Composed Mitigation** — Layer 1 statistical detection (scaffolding in v5.0; enforcement at v5.0 lifecycle Week 7+), Layer 2 in-flow audit hook (hot from the start), Layer 3 Mode-Confirmation Audit primitive with `review-required` interrupt (hot from the start), Layer 4 named human-attestation (hot from the start) with 8 required sub-fields and 4 jurisdictional variants (US/UK/EU/IL)
 - **Eight named structural-primitive skills aligned** — `/decision-charter`, `/decision-record`, `/escalation-rule`, `/ownership-map`, `/customer-value-trace`, `/collaboration-check`, `/scale-check`, `/phase-check`
 - **Stream E cross-stream conformance test apparatus** — 9-category test matrix + synthetic Charter library
 - **Naming directive applied** — "Vision to Value" spelled in full in human-facing prose; `v2v` retained in API endpoint paths and code identifiers per Naming Directive Distribution Pack §B.3

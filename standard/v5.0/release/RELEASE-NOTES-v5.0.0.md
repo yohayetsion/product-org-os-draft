@@ -1,3 +1,37 @@
+<!--
+Reviewer-Readiness Summary (delete this comment block before production deploy)
+
+WHAT IS LOCKED:
+- Headline canonical claim verbatim form (§A.4)
+- Five-artifact ecosystem enumeration
+- Version Decision paragraph (v4.0.1 -> v5.0.0 jump explainer)
+- All bundle file references, schema field counts, jurisdictional variant counts, enum sizes
+  (these match Stream G's Pass-1 re-verification artifact)
+- CC-BY 4.0 attribution + canonical URL pattern at Citations (Path A / Path B contingency)
+- Acceptable lay-audience paraphrase scope: LinkedIn publication post + press release lay paragraph only
+
+WHAT IS PENDING YOHAY CONFIRMATION:
+- Release date placeholder "2026-05-XX (Phase 3 Day 10 target)" — Tech Lead picks actual date
+  at publish per Phase 3 dispatch plan v1.2 §F.4
+- decisionprovenance.ai (Path A) vs executiveoperatingsystems.org/standard/ (Path B) —
+  Day-4 Phase 3.5 dispatch decision per Wave 2 addendum item 9. This release notes ships
+  Path A as primary and Path B as fallback (registered alternate canonical URL).
+
+WHAT NEEDS PMM-DIR CONFORMANCE-LANGUAGE PASS:
+- Headline §A.4 verbatim form
+- Forbidden phrasings appear ONLY in Conformance Framing block negation enumeration
+- Lay-audience paraphrase scope correctly bound (does not appear on this release notes;
+  release notes is a technical surface, canonical claim only)
+- "Vision to Value" full spelling throughout; v2v retained only in code/API references
+
+WHAT IS PENDING YOHAY APPROVAL AT DRAFT URL:
+- Draft branch deploys to https://yohayetsion.github.io/product-org-os-draft/
+- This release notes lives at /standard/v5.0/release/RELEASE-NOTES-v5.0.0.md on the draft URL
+- Yohay reviews; production deploys to /standard/v5.0/release/ on https://yohayetsion.github.io/product-org-os/
+  only after explicit approval
+- Cache invalidation per DEPLOY-PLAN.md §3.B applies on production push
+-->
+
 # Product Org OS v5.0.0 — Vision to Value Standard Alignment Release
 
 **Release Date**: 2026-05-XX (Phase 3 Day 10 target)
@@ -13,7 +47,7 @@
 
 > ***Product Org OS v5.0 implements the Decision Provenance Standard's reporter protocol at Conformance Level 3.***
 
-This release ships the load-bearing minimum that supports the marketing-strong canonical claim. The five citable launch artifacts in the Vision to Value ecosystem are:
+This release ships the load-bearing minimum that supports the marketing-strong canonical claim. The five citable artifacts in the Executive Operating Systems series are:
 
 1. **The Decision Provenance Standard** — the normative document
 2. ***Vision to Value: Volume One in the Executive Operating System Series*** — the book
@@ -46,12 +80,12 @@ A new top-level directory `standard/v5.0/` ships the runnable substrate that sup
 
 ### Mode-Drift Four-Layer Composed Mitigation (NEW)
 
-R-001 (silent Mode 1 → Mode 2 drift) closes day-one of v5.0.0:
+R-001 (silent Mode 1 → Mode 2 drift) closes from the moment v5.0.0 is published:
 
 - **Layer 1 (Statistical Detection)** — classifier scaffolding ships in v5.0 with detection-only mode; enforcement gates phase in via D.2.1 sub-track at OS v5.0 lifecycle Week 7+ (NOT Phase 3 dispatch weeks). 15% sampling baseline, 30% override for `mode-1-with-embedded-mode-2-summary` Charters, every-record-until-first-100 override. 0.75 hard threshold + 0.50-0.75 soft-flag band. Three-corpus design (Layer A = 200 Mode-2 records + Layer B = Section 4 + 0.5.D worked examples + Layer C = adversarial, authored Weeks 4-6 of OS v5.0 lifecycle).
-- **Layer 2 (In-Flow Audit Hook)** — fires hot day-one. 4-question Substantive-Authorship Challenge at Mode-1 record close. 10-field audit trail. Single jurisdictional set.
-- **Layer 3 (Mode-Confirmation Audit primitive)** — fires hot day-one. `review-required` RECORD-state interrupt. Peer-reviewer designation rule (5 sub-rules, pool minimum 3, author/Charter-owner exclusions, recusal carve-out). Firing authority for `no_silent_mode_drift_in_sample` Level 2 signal on Seam 3 cadence.
-- **Layer 4 (Named Human-Attestation)** — fires hot day-one. `mode_classification_attestation` structured object (NOT scalar — per General Counsel refinement) with 8 required sub-fields: full name, role, employer, timestamp, jurisdiction enum, language version, verbatim signed text, capacity. Verbatim attestation language with US/UK/EU/IL jurisdictional variants.
+- **Layer 2 (In-Flow Audit Hook)** — fires hot from the start. 4-question Substantive-Authorship Challenge at Mode-1 record close. 10-field audit trail. Single jurisdictional set.
+- **Layer 3 (Mode-Confirmation Audit primitive)** — fires hot from the start. `review-required` RECORD-state interrupt. Peer-reviewer designation rule (5 sub-rules, pool minimum 3, author/Charter-owner exclusions, recusal carve-out). Firing authority for `no_silent_mode_drift_in_sample` Level 2 signal on Seam 3 cadence.
+- **Layer 4 (Named Human-Attestation)** — fires hot from the start. `mode_classification_attestation` structured object (NOT scalar — per General Counsel refinement) with 8 required sub-fields: full name, role, employer, timestamp, jurisdiction enum, language version, verbatim signed text, capacity. Verbatim attestation language with US/UK/EU/IL jurisdictional variants.
 
 ### Eight Named Structural-Primitive Skills Aligned
 
@@ -87,7 +121,7 @@ The Conformance Reporter API ships at OpenAPI 3.1 (info.version 1.1.0). The 1.1 
 
 ## What's Deferred to v5.1
 
-The remaining ~125 ancillary OS skills receive Mode-awareness + disclosure metadata field alignment in **v5.1**, scheduled 4-6 weeks post-launch. v5.1 is **not load-bearing** for the Conformance Level 3 claim — it improves coverage breadth, not conformance depth. Charters authored using the v5.0.0 OS can achieve Level 3 today when deployer-side discipline matches the OS's structural support.
+The remaining ~125 ancillary OS skills receive Mode-awareness + disclosure metadata field alignment in **v5.1**, scheduled 4-6 weeks after v5.0.0 is published. v5.1 is **not load-bearing** for the Conformance Level 3 claim — it improves coverage breadth, not conformance depth. Charters authored using the v5.0.0 OS can achieve Level 3 today when deployer-side discipline matches the OS's structural support.
 
 Layer 1 enforcement-mode activation also lands at v5.1 (technically OS v5.0 lifecycle Week 7+), after Layer C adversarial corpus authoring completes.
 
@@ -118,7 +152,7 @@ Per Conformance Framing Locked Language Table §A.3-§A.5:
 **Acceptable** (use verbatim on technical surfaces):
 > *"Product Org OS v5.0 implements the Decision Provenance Standard's reporter protocol at Conformance Level 3."*
 
-**Acceptable lay-audience paraphrase** (LinkedIn day-one, press release lay paragraph):
+**Acceptable lay-audience paraphrase** (LinkedIn publication post, press release lay paragraph):
 > *"...engineered to meet the Decision Provenance Standard's highest current conformance level (Level 3)..."*
 
 **Forbidden** (NEVER appears as affirmative claim in v5.0.0 surfaces): "compliant with the Standard," "Standard-compliant" (single-token or compound forms: "-implementation," "-Charter," "-deployment"), "certified Standard implementation," "guarantees Level 3 conformance," "the Standard guarantees Level [N]," "audit-defensible," "legally defensible," "audit-grade provenance," "compliance-aligned," "compliance-grade," "regulator-ready," "certification-ready."
@@ -129,7 +163,7 @@ Section 6 of the Standard grades the Charter; the Standard does not certify. Con
 
 ## Citations
 
-The five launch artifacts cite this release. Recommended citation form (CC-BY 4.0 attribution requirement):
+The five citable artifacts in the series cite this release. Recommended citation form (CC-BY 4.0 attribution requirement):
 
 > Etsion, Y. (2026). *Product Org OS v5.0.0 — Vision to Value Standard Alignment Release*. CC-BY 4.0. Retrieved from https://github.com/yohayetsion/product-org-os/releases/tag/v5.0.0
 

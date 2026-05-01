@@ -1,3 +1,46 @@
+<!--
+Reviewer-Readiness Summary (delete this comment block before production deploy)
+
+WHAT IS LOCKED:
+- v5.0.0 entry text (verbatim from Wave 1 CHANGELOG-v5.0.0-entry.md)
+- v4.0.1 -> v5.0.0 jump explainer paragraph at top of v5.0.0 entry
+- 8 named structural-primitive skills list
+- Four-layer Mode-Drift framing (L1 scaffolding, L2-4 hot from the start)
+- Layer 4 attestation 8 sub-fields + 4 jurisdictional variants
+- Reporter API path /v2v/conformance/charter-escalation (Naming Directive §B.3 carve-out)
+- OpenAPI 3.1 wire contract version 1.1.0
+
+WHAT IS PENDING YOHAY CONFIRMATION:
+- v4.0.0 entry: reconstructed from CLAUDE.md (line 63: "v4.0.0: enforcement-first agent declarations,
+  20 cross-domain specialist skills, UX Lead removed (design now via @ext-design)") + README.md
+  v4.0 What's New section (lines 169-205 of current README). MARKED [reconstructed; needs Yohay
+  confirmation] in the entry itself. No standalone v4.0.0 release notes file found in
+  product-org-plugin/, /standard/, or root Product Org OS/.
+- v4.0.1 entry: reconstructed from CLAUDE.md (line 63: "v4.0.1: repositioned as framework, dropped
+  plugin wrapper, portable install.py installer, knowledge pack cleanup (28 packs, 10 unreferenced
+  removed)") + footer note in current README ("Previously installed as a Claude Code plugin. v4.0.1
+  repositions as a framework with a portable installer."). MARKED [reconstructed; needs Yohay
+  confirmation].
+- Release date for v4.0.0: NOT RECOVERED from any source. Marked [date TBD by Yohay] inline.
+  Sources scanned: CLAUDE.md (only gives 4.0.1 = 2026-04-16), README.md, whats-new-v4.html (no
+  release date in html metadata), product-org-plugin/standard/. Reasonable inference: late
+  March 2026 (between [3.1.0] 2026-03-07 and [4.0.1] 2026-04-16). Inline placeholder reads
+  "2026-04-XX" with the note.
+- v5.0.0 release date "2026-05-XX (Phase 3 Day 10 target)" — Tech Lead picks actual date at publish.
+
+WHAT NEEDS PMM-DIR CONFORMANCE-LANGUAGE PASS:
+- v5.0.0 entry: zero forbidden phrasings as affirmative claims (Stream G found 4 acceptable
+  forbidden-phrasing matches, all in negation/firewall enumeration contexts; this entry inherits
+  the same discipline)
+- Canonical claim §A.4 verbatim form is exactly correct
+- Naming directive bullet does not drift toward affirmative V2V usage
+
+WHAT IS PENDING YOHAY APPROVAL AT DRAFT URL:
+- Draft branch deploys to https://yohayetsion.github.io/product-org-os-draft/
+- Yohay reviews CHANGELOG entries (especially v4.x backfill text); confirms or sends edits
+- Production push to main only after explicit approval
+-->
+
 # Changelog
 
 All notable changes to Product Org OS will be documented in this file.
@@ -21,9 +64,9 @@ v5.0.0 is a major-version release marking Product Org OS's alignment to the Deci
   - `conformance/reporter-api.openapi.yaml` — OpenAPI 3.1 wire contract (info.version 1.1.0; `escalation_type` enum 9 values per M1 v1.1 amendment)
   - `conformance/signal-vocabulary.md` — Conformance signal vocabulary across Levels 1, 2, 3 with sample audit-cadence binding (15% rolling sample with first-100 + edge-case overrides)
   - `mode-drift/layer-1-detection.md` — Statistical detection scaffolding (D.2.1 sub-track owns enforcement at OS v5.0 lifecycle Week 7+)
-  - `mode-drift/layer-2-audit-hook.md` — 4-question Substantive-Authorship Challenge at Mode-1 record close, fires hot day-one
-  - `mode-drift/layer-3-mode-confirmation.md` — `review-required` RECORD-state interrupt + 5-rule peer-reviewer designation (pool minimum 3, author/Charter-owner exclusions, recusal carve-out), fires hot day-one
-  - `mode-drift/layer-4-attestation.md` + `layer-4-attestation.schema.json` — `mode_classification_attestation` structured object with 8 required sub-fields (full name, role, employer, timestamp, jurisdiction enum, language version, verbatim signed text, capacity) + 4 jurisdictional variants (US/UK/EU/IL), fires hot day-one
+  - `mode-drift/layer-2-audit-hook.md` — 4-question Substantive-Authorship Challenge at Mode-1 record close, fires hot from the start
+  - `mode-drift/layer-3-mode-confirmation.md` — `review-required` RECORD-state interrupt + 5-rule peer-reviewer designation (pool minimum 3, author/Charter-owner exclusions, recusal carve-out), fires hot from the start
+  - `mode-drift/layer-4-attestation.md` + `layer-4-attestation.schema.json` — `mode_classification_attestation` structured object with 8 required sub-fields (full name, role, employer, timestamp, jurisdiction enum, language version, verbatim signed text, capacity) + 4 jurisdictional variants (US/UK/EU/IL), fires hot from the start
   - `tests/cross-stream-conformance-check.md` — Stream E test apparatus, 9-category test matrix
   - `tests/synthetic-charter-library.md` — 8 synthetic Charters covering all jurisdictions and edge cases
 
@@ -57,7 +100,7 @@ The following skills are aligned to emit Vision to Value Standard conformance si
 - New `whats-new-v5.0.0.html` narrative page (companion to RELEASE-NOTES-v5.0.0.md)
 - Naming Directive Distribution Pack applied to all human-facing artifacts: "Vision to Value" full spelling in prose; `v2v` retained ONLY in API endpoint paths (`/v2v/conformance/charter-escalation`), code identifiers (`v2v_conformance_signal`, `v2v_phase`), file system paths, and internal log streams per §B.3
 
-### Deferred to v5.1 (4-6 weeks post-launch)
+### Deferred to v5.1 (4-6 weeks after v5.0.0 is published)
 
 - ~125 ancillary OS skills receive Mode-awareness + disclosure metadata field alignment
 - Layer 1 enforcement-mode activation (technically OS v5.0 lifecycle Week 7+, after Layer C adversarial corpus authoring completes Weeks 4-6)

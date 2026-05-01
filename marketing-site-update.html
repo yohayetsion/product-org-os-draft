@@ -1,3 +1,57 @@
+<!--
+================================================================================
+F.4 OS MARKETING SITE UPDATE FRAGMENT — v5.0.0
+================================================================================
+
+PURPOSE: HTML fragments to merge into the existing marketing site source at
+yohayetsion.github.io/product-org-os/index.html on the production deploy.
+
+This file is NOT a standalone page. It is a set of three drop-in fragments:
+  1. NEW hero section (replaces existing hero block)
+  2. NEW nav entry for "What's New v5.0.0" (added to existing nav)
+  3. NEW book reference text using the V2V subtitle "Your Operating System for
+     Running a World-Class Product Organization" (replaces existing book ref)
+
+Frontend Dev: merge these fragments into the live index.html on the
+yohayetsion/product-org-os repo on the draft branch first
+(https://yohayetsion.github.io/product-org-os-draft/), Yohay reviews,
+then merge to main for production at https://yohayetsion.github.io/product-org-os/.
+
+================================================================================
+
+REVIEWER-READINESS SUMMARY
+
+WHAT IS LOCKED:
+- Canonical claim (§A.4 verbatim) on the hero
+- Three-CTA structure (Install / What's New v5.0.0 / Read the Standard)
+- "Standard-aligned by design" appended to feature one-liner stack (§A.3 acceptable)
+- "Vision to Value" full spelling everywhere; v2v retained only in code/API references
+- V2V subtitle "Your Operating System for Running a World-Class Product Organization"
+  (per Wave 2 dispatch + Wave 1 marketing-site-copy-update-plan.md)
+
+WHAT IS PENDING YOHAY CONFIRMATION:
+- Path A (decisionprovenance.ai) vs Path B (executiveoperatingsystems.org/standard/)
+  for the "Read the Standard" CTA target. Fragment ships Path A; Frontend Dev swaps
+  to Path B if Day-4 domain decision goes that way.
+- Position of "What's New" nav entry — recommended Option A (top-nav primary entry).
+  Yohay confirms placement at draft URL review.
+- Whether to keep "Interactive Presentation" link or demote/replace. Fragment
+  preserves it as a secondary footer item.
+
+WHAT NEEDS PMM-DIR CONFORMANCE-LANGUAGE PASS:
+- Canonical claim verbatim form on hero (§A.4)
+- Lay-audience paraphrase NOT used on hero (homepage = technical surface)
+- Zero forbidden phrasings (§A.3 — 10 forbidden) anywhere in fragment
+- Cross-artifact veto authority covers any drift
+
+WHAT IS PENDING YOHAY APPROVAL AT DRAFT URL:
+- Draft deploy: merge into draft branch -> https://yohayetsion.github.io/product-org-os-draft/
+- Yohay reviews; sends edits or approves
+- Production: merge to main -> https://yohayetsion.github.io/product-org-os/
+- Cache invalidation per DEPLOY-PLAN.md §3.B applies on production push
+================================================================================
+-->
+
 <!-- ================================================================== -->
 <!-- FRAGMENT 1: NEW HERO SECTION                                        -->
 <!-- ================================================================== -->
