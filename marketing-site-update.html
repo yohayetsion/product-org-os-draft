@@ -1,0 +1,326 @@
+<!-- ================================================================== -->
+<!-- FRAGMENT 1: NEW HERO SECTION                                        -->
+<!-- ================================================================== -->
+<!-- Replace the existing hero block in index.html with this fragment.   -->
+<!-- Brand tokens: --primary #E94560 / --secondary #4ECCA3 (Product Org OS) -->
+
+<section class="hero" id="hero">
+    <div class="hero-inner">
+
+        <!-- Version badge — telegraphs v5.0.0 magnitude -->
+        <div class="version-badge">
+            <span class="version-dot"></span>
+            <span>v5.0.0 — Vision to Value Standard alignment release</span>
+        </div>
+
+        <h1 class="hero-title">
+            <span class="hero-title-line">Product Org OS</span>
+        </h1>
+
+        <p class="hero-tagline">
+            <strong>An entire product organization that becomes your superpower.</strong>
+        </p>
+
+        <p class="hero-arc">
+            Intent → Decisions → Commitments → Execution → Outcomes → Learning
+        </p>
+
+        <!-- Canonical claim — §A.4 verbatim form. Do not paraphrase. -->
+        <div class="hero-canonical">
+            <p>
+                <em>Product Org OS v5.0 implements the Decision Provenance Standard's reporter protocol at Conformance Level 3.</em>
+            </p>
+        </div>
+
+        <!-- Feature one-liner with §A.3 "Standard-aligned by design" -->
+        <p class="hero-features">
+            12 agents · 133 skills · 28 knowledge packs · Structured metadata · Enforcement-first runtime · MCP integrations · <strong>Standard-aligned by design</strong>
+        </p>
+
+        <!-- Three-CTA structure: action / depth / context -->
+        <div class="hero-ctas">
+            <a href="https://github.com/yohayetsion/product-org-os" class="cta cta-primary">
+                Install the OS
+                <span class="cta-arrow">→</span>
+            </a>
+            <a href="./whats-new-v5.0.0.html" class="cta cta-secondary">
+                What's New in v5.0.0
+                <span class="cta-arrow">→</span>
+            </a>
+            <!-- Path A primary; Frontend Dev swaps to Path B fallback if Day-4 decision goes that way -->
+            <a href="https://decisionprovenance.ai" class="cta cta-tertiary">
+                Read the Standard
+                <span class="cta-arrow">→</span>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================================================================== -->
+<!-- FRAGMENT 2: NEW TOP-NAV ENTRY (Option A — recommended)              -->
+<!-- ================================================================== -->
+<!-- Add the "What's New" entry as a first-class nav item (Option A      -->
+<!-- recommended in marketing-site-copy-update-plan.md §2.B).            -->
+<!-- Insert into existing nav element between "Install" and "Standard". -->
+
+<nav class="primary-nav" id="primary-nav">
+    <div class="nav-inner">
+        <a href="./" class="nav-logo">
+            <span class="nav-logo-icon">
+                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" width="28" height="28">
+                    <defs>
+                        <linearGradient id="navGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#E94560"/>
+                            <stop offset="100%" stop-color="#4ECCA3"/>
+                        </linearGradient>
+                    </defs>
+                    <polygon points="16,2 28,9 28,23 16,30 4,23 4,9" fill="none" stroke="url(#navGrad)" stroke-width="2"/>
+                    <circle cx="16" cy="16" r="3" fill="url(#navGrad)"/>
+                </svg>
+            </span>
+            <span class="nav-logo-text">Product Org OS</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="./" class="nav-link">Home</a>
+            <a href="https://github.com/yohayetsion/product-org-os" class="nav-link">Install</a>
+            <a href="./whats-new-v5.0.0.html" class="nav-link nav-link-highlight">What's New</a>
+            <!-- Path A primary; Path B fallback in marketing-site-copy-update-plan.md §2.C -->
+            <a href="https://decisionprovenance.ai" class="nav-link">Standard</a>
+            <a href="https://github.com/yohayetsion/product-org-os" class="nav-link">GitHub</a>
+        </div>
+    </div>
+</nav>
+
+
+<!-- ================================================================== -->
+<!-- FRAGMENT 3: NEW BOOK REFERENCE BLOCK (uses new V2V subtitle)        -->
+<!-- ================================================================== -->
+<!-- Replaces existing book-reference text wherever it appears in the    -->
+<!-- marketing site. Per Phase 3.5 Wave 2 dispatch + Wave 1               -->
+<!-- marketing-site-copy-update-plan.md, the V2V subtitle is the new      -->
+<!-- "Your Operating System for Running a World-Class Product             -->
+<!-- Organization" form.                                                  -->
+
+<section class="book-reference" id="book-reference">
+    <div class="book-reference-inner">
+        <h2 class="book-ref-heading">The book this is built on</h2>
+
+        <p class="book-ref-body">
+            Product Org OS v5.0 is the runnable substrate of <em>Vision to Value: Your Operating System for Running a World-Class Product Organization</em>, Volume One in the Executive Operating System Series. The book frames the operating model. The OS implements it as agents, skills, and the runnable substrate that makes Charters in the Decision Provenance Standard achievable at Conformance Level 3.
+        </p>
+
+        <p class="book-ref-body">
+            Section 6 of the Standard grades the Charter; the Standard does not certify. Conformance is a deployer-side achievement, not an OS feature. Charters authored using the OS can achieve Level 3 when deployer-side discipline matches the OS's structural support.
+        </p>
+
+        <div class="book-ref-ctas">
+            <a href="https://decisionprovenance.ai" class="cta cta-secondary">
+                Read the Standard
+                <span class="cta-arrow">→</span>
+            </a>
+            <a href="https://etsionbrand.com/v2v" class="cta cta-tertiary">
+                About the book
+                <span class="cta-arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ================================================================== -->
+<!-- FRAGMENT-LOCAL CSS (merge into existing site stylesheet)            -->
+<!-- ================================================================== -->
+<!-- Existing stylesheet on yohayetsion.github.io/product-org-os already  -->
+<!-- defines :root tokens, .hero, .nav, .cta classes. Below are ADDITIVE  -->
+<!-- styles for the new elements. Verify class conflicts during merge.   -->
+
+<style>
+/* Version badge above hero title */
+.version-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(78, 204, 163, 0.08);
+    border: 1px solid rgba(78, 204, 163, 0.25);
+    border-radius: 999px;
+    padding: 0.45rem 1.15rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #4ecca3;
+    margin-bottom: 1.5rem;
+}
+.version-dot {
+    width: 8px; height: 8px;
+    background: #4ecca3;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+/* Canonical claim block on hero */
+.hero-canonical {
+    background: linear-gradient(135deg, rgba(233, 69, 96, 0.08), rgba(78, 204, 163, 0.08));
+    border: 1px solid rgba(233, 69, 96, 0.3);
+    border-radius: 8px;
+    padding: 1.5rem 1.75rem;
+    margin: 1.75rem auto;
+    max-width: 720px;
+}
+.hero-canonical p {
+    font-size: 1.05rem;
+    color: #ffffff;
+    font-weight: 600;
+    font-style: italic;
+    margin: 0;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* Hero feature stack with "Standard-aligned by design" emphasis */
+.hero-features {
+    color: #c8c8d0;
+    font-size: 0.95rem;
+    margin: 1.5rem 0 2rem;
+    line-height: 1.6;
+}
+.hero-features strong {
+    color: #4ecca3;
+    font-weight: 600;
+}
+
+/* Three-CTA hero block */
+.hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.85rem;
+    margin-top: 2rem;
+}
+.cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.85rem 1.5rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+}
+.cta-arrow { transition: transform 0.2s; }
+.cta:hover .cta-arrow { transform: translateX(3px); }
+
+.cta-primary {
+    background: linear-gradient(135deg, #e94560, #c73e54);
+    color: #ffffff;
+    border-color: rgba(233, 69, 96, 0.4);
+}
+.cta-primary:hover {
+    background: linear-gradient(135deg, #f15670, #d44a60);
+    box-shadow: 0 4px 18px rgba(233, 69, 96, 0.3);
+}
+.cta-secondary {
+    background: rgba(78, 204, 163, 0.1);
+    color: #4ecca3;
+    border-color: rgba(78, 204, 163, 0.4);
+}
+.cta-secondary:hover {
+    background: rgba(78, 204, 163, 0.18);
+    border-color: #4ecca3;
+}
+.cta-tertiary {
+    background: transparent;
+    color: #c8c8d0;
+    border-color: #2a2a4e;
+}
+.cta-tertiary:hover {
+    color: #ffffff;
+    border-color: #4ecca3;
+}
+
+/* Nav highlight for "What's New" entry */
+.nav-link-highlight {
+    color: #4ecca3 !important;
+    font-weight: 600;
+    position: relative;
+}
+.nav-link-highlight::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #e94560, #4ecca3);
+    border-radius: 1px;
+}
+
+/* Book reference section */
+.book-reference {
+    padding: 4rem 1.5rem;
+    background: rgba(15, 52, 96, 0.18);
+    border-top: 1px solid #2a2a4e;
+    border-bottom: 1px solid #2a2a4e;
+}
+.book-reference-inner {
+    max-width: 780px;
+    margin: 0 auto;
+}
+.book-ref-heading {
+    font-size: 1.65rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+}
+.book-ref-body {
+    color: #c8c8d0;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1.15rem;
+}
+.book-ref-body em {
+    color: #ffffff;
+    font-style: italic;
+}
+.book-ref-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 640px) {
+    .hero-canonical p { font-size: 0.95rem; }
+    .hero-features { font-size: 0.85rem; }
+    .hero-ctas { flex-direction: column; align-items: stretch; }
+    .cta { justify-content: center; }
+}
+</style>
+
+
+<!-- ================================================================== -->
+<!-- MERGE CHECKLIST (Frontend Dev)                                      -->
+<!-- ================================================================== -->
+<!--
+[ ] Replace existing hero block with FRAGMENT 1
+[ ] Replace existing nav block with FRAGMENT 2 (preserve any other nav items
+    not listed: e.g., docs subroutes specific to existing site)
+[ ] Insert FRAGMENT 3 below the hero, above the existing "What's Included" or
+    similar primary-content section
+[ ] Merge fragment-local CSS into existing stylesheet; verify class conflicts
+    (.hero, .nav, .cta classes already exist on the site)
+[ ] Verify favicon and brand tokens unchanged (Product Org OS primary #E94560,
+    accent #4ECCA3)
+[ ] Confirm "Read the Standard" CTA URL: Path A or Path B (Day-4 decision)
+[ ] Confirm "About the book" CTA target — etsionbrand.com/v2v per V2V publishing
+    plan; if not yet live, swap to Vision to Value GitHub repo URL
+[ ] Stage to draft branch -> https://yohayetsion.github.io/product-org-os-draft/
+[ ] Email draft URL to Yohay for review
+[ ] On approval: merge to main; trigger GitHub Pages rebuild; execute cache
+    invalidation per DEPLOY-PLAN.md §3.B
+[ ] Day 7 verification per DEPLOY-PLAN.md §3.C
+-->

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Org OS — Draft Staging Mirror</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23E94560'/%3E%3Cstop offset='100%25' stop-color='%234ECCA3'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpolygon points='100,10 178,55 178,145 100,190 22,145 22,55' fill='none' stroke='url(%23g)' stroke-width='3'/%3E%3Ccircle cx='100' cy='100' r='14' fill='url(%23g)'/%3E%3C/svg%3E">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #e94560;
+            --primary-dark: #c73e54;
+            --secondary: #4ecca3;
+            --bg: #0f0e1c;
+            --bg-elev: #15142a;
+            --text: #ffffff;
+            --text-muted: #c8c8d0;
+            --border: #2a2a4e;
+        }
+        * { box-sizing: border-box; }
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: var(--secondary); text-decoration: none; }
+        a:hover { color: var(--primary); }
+
+        /* Draft-mirror banner so reviewers know what they are looking at */
+        .draft-banner {
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.18), rgba(78, 204, 163, 0.18));
+            border-bottom: 1px solid var(--border);
+            padding: 0.75rem 1.5rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        .draft-banner strong { color: var(--text); }
+
+        /* Primary nav */
+        .primary-nav {
+            background: var(--bg-elev);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--text);
+            font-weight: 700;
+        }
+        .nav-logo:hover { color: var(--text); }
+        .nav-logo-icon { display: inline-flex; }
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .nav-link {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        .nav-link:hover { color: var(--text); }
+
+        /* Hero */
+        .hero {
+            padding: 5rem 1.5rem 4rem;
+            text-align: center;
+        }
+        .hero-inner {
+            max-width: 880px;
+            margin: 0 auto;
+        }
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            margin: 0 0 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.02em;
+        }
+        .hero-tagline {
+            font-size: 1.25rem;
+            color: var(--text);
+            margin: 0 0 0.75rem;
+        }
+        .hero-arc {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin: 0 0 0;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Below-the-fold links */
+        .more-links {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+        }
+        .more-link-card {
+            display: block;
+            background: var(--bg-elev);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            color: var(--text);
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .more-link-card:hover {
+            border-color: var(--secondary);
+            transform: translateY(-2px);
+            color: var(--text);
+        }
+        .more-link-card h3 {
+            font-size: 1.05rem;
+            margin: 0 0 0.5rem;
+            color: var(--secondary);
+        }
+        .more-link-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* Fragment-local CSS — verbatim from marketing-site-update.html */
+
+        /* Version badge above hero title */
+        .version-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(78, 204, 163, 0.08);
+            border: 1px solid rgba(78, 204, 163, 0.25);
+            border-radius: 999px;
+            padding: 0.45rem 1.15rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #4ecca3;
+            margin-bottom: 1.5rem;
+        }
+        .version-dot {
+            width: 8px; height: 8px;
+            background: #4ecca3;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+        /* Canonical claim block on hero */
+        .hero-canonical {
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.08), rgba(78, 204, 163, 0.08));
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            border-radius: 8px;
+            padding: 1.5rem 1.75rem;
+            margin: 1.75rem auto;
+            max-width: 720px;
+        }
+        .hero-canonical p {
+            font-size: 1.05rem;
+            color: #ffffff;
+            font-weight: 600;
+            font-style: italic;
+            margin: 0;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        /* Hero feature stack with "Standard-aligned by design" emphasis */
+        .hero-features {
+            color: #c8c8d0;
+            font-size: 0.95rem;
+            margin: 1.5rem 0 2rem;
+            line-height: 1.6;
+        }
+        .hero-features strong {
+            color: #4ecca3;
+            font-weight: 600;
+        }
+
+        /* Three-CTA hero block */
+        .hero-ctas {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.85rem;
+            margin-top: 2rem;
+        }
+        .cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.85rem 1.5rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        .cta-arrow { transition: transform 0.2s; }
+        .cta:hover .cta-arrow { transform: translateX(3px); }
+
+        .cta-primary {
+            background: linear-gradient(135deg, #e94560, #c73e54);
+            color: #ffffff;
+            border-color: rgba(233, 69, 96, 0.4);
+        }
+        .cta-primary:hover {
+            background: linear-gradient(135deg, #f15670, #d44a60);
+            box-shadow: 0 4px 18px rgba(233, 69, 96, 0.3);
+        }
+        .cta-secondary {
+            background: rgba(78, 204, 163, 0.1);
+            color: #4ecca3;
+            border-color: rgba(78, 204, 163, 0.4);
+        }
+        .cta-secondary:hover {
+            background: rgba(78, 204, 163, 0.18);
+            border-color: #4ecca3;
+        }
+        .cta-tertiary {
+            background: transparent;
+            color: #c8c8d0;
+            border-color: #2a2a4e;
+        }
+        .cta-tertiary:hover {
+            color: #ffffff;
+            border-color: #4ecca3;
+        }
+
+        /* Nav highlight for "What's New" entry */
+        .nav-link-highlight {
+            color: #4ecca3 !important;
+            font-weight: 600;
+            position: relative;
+        }
+        .nav-link-highlight::after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #e94560, #4ecca3);
+            border-radius: 1px;
+        }
+
+        /* Book reference section */
+        .book-reference {
+            padding: 4rem 1.5rem;
+            background: rgba(15, 52, 96, 0.18);
+            border-top: 1px solid #2a2a4e;
+            border-bottom: 1px solid #2a2a4e;
+        }
+        .book-reference-inner {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+        .book-ref-heading {
+            font-size: 1.65rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+        }
+        .book-ref-body {
+            color: #c8c8d0;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.15rem;
+        }
+        .book-ref-body em {
+            color: #ffffff;
+            font-style: italic;
+        }
+        .book-ref-ctas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 640px) {
+            .hero-canonical p { font-size: 0.95rem; }
+            .hero-features { font-size: 0.85rem; }
+            .hero-ctas { flex-direction: column; align-items: stretch; }
+            .cta { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Draft-mirror notice for reviewers -->
+<div class="draft-banner">
+    <strong>Staging mirror:</strong> This page assembles the F.4 marketing-site-update.html fragments into a viewable homepage for review. Production target is <code>yohayetsion.github.io/product-org-os/</code>; production push runs only after Yohay's approval at this draft URL.
+</div>
+
+<!-- ================================================================== -->
+<!-- FRAGMENT 2: PRIMARY NAV (Option A — recommended)                    -->
+<!-- ================================================================== -->
+<nav class="primary-nav" id="primary-nav">
+    <div class="nav-inner">
+        <a href="./" class="nav-logo">
+            <span class="nav-logo-icon">
+                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" width="28" height="28">
+                    <defs>
+                        <linearGradient id="navGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#E94560"/>
+                            <stop offset="100%" stop-color="#4ECCA3"/>
+                        </linearGradient>
+                    </defs>
+                    <polygon points="16,2 28,9 28,23 16,30 4,23 4,9" fill="none" stroke="url(#navGrad)" stroke-width="2"/>
+                    <circle cx="16" cy="16" r="3" fill="url(#navGrad)"/>
+                </svg>
+            </span>
+            <span class="nav-logo-text">Product Org OS</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="./" class="nav-link">Home</a>
+            <a href="https://github.com/yohayetsion/product-org-os" class="nav-link">Install</a>
+            <a href="./whats-new-v5.0.0.html" class="nav-link nav-link-highlight">What's New</a>
+            <a href="https://decisionprovenance.ai" class="nav-link">Standard</a>
+            <a href="https://github.com/yohayetsion/product-org-os" class="nav-link">GitHub</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ================================================================== -->
+<!-- FRAGMENT 1: HERO                                                     -->
+<!-- ================================================================== -->
+<section class="hero" id="hero">
+    <div class="hero-inner">
+
+        <div class="version-badge">
+            <span class="version-dot"></span>
+            <span>v5.0.0 — Vision to Value Standard alignment release</span>
+        </div>
+
+        <h1 class="hero-title">
+            <span class="hero-title-line">Product Org OS</span>
+        </h1>
+
+        <p class="hero-tagline">
+            <strong>An entire product organization that becomes your superpower.</strong>
+        </p>
+
+        <p class="hero-arc">
+            Intent → Decisions → Commitments → Execution → Outcomes → Learning
+        </p>
+
+        <div class="hero-canonical">
+            <p>
+                <em>Product Org OS v5.0 implements the Decision Provenance Standard's reporter protocol at Conformance Level 3.</em>
+            </p>
+        </div>
+
+        <p class="hero-features">
+            12 agents · 133 skills · 28 knowledge packs · Structured metadata · Enforcement-first runtime · MCP integrations · <strong>Standard-aligned by design</strong>
+        </p>
+
+        <div class="hero-ctas">
+            <a href="https://github.com/yohayetsion/product-org-os" class="cta cta-primary">
+                Install the OS
+                <span class="cta-arrow">→</span>
+            </a>
+            <a href="./whats-new-v5.0.0.html" class="cta cta-secondary">
+                What's New in v5.0.0
+                <span class="cta-arrow">→</span>
+            </a>
+            <a href="https://decisionprovenance.ai" class="cta cta-tertiary">
+                Read the Standard
+                <span class="cta-arrow">→</span>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FRAGMENT 3: BOOK REFERENCE                                           -->
+<!-- ================================================================== -->
+<section class="book-reference" id="book-reference">
+    <div class="book-reference-inner">
+        <h2 class="book-ref-heading">The book this is built on</h2>
+
+        <p class="book-ref-body">
+            Product Org OS v5.0 is the runnable substrate of <em>Vision to Value: Your Operating System for Running a World-Class Product Organization</em>, Volume One in the Executive Operating System Series. The book frames the operating model. The OS implements it as agents, skills, and the runnable substrate that makes Charters in the Decision Provenance Standard achievable at Conformance Level 3.
+        </p>
+
+        <p class="book-ref-body">
+            Section 6 of the Standard grades the Charter; the Standard does not certify. Conformance is a deployer-side achievement, not an OS feature. Charters authored using the OS can achieve Level 3 when deployer-side discipline matches the OS's structural support.
+        </p>
+
+        <div class="book-ref-ctas">
+            <a href="https://decisionprovenance.ai" class="cta cta-secondary">
+                Read the Standard
+                <span class="cta-arrow">→</span>
+            </a>
+            <a href="https://etsionbrand.com/v2v" class="cta cta-tertiary">
+                About the book
+                <span class="cta-arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Reviewer convenience: direct links to every staged surface -->
+<div class="more-links">
+    <a class="more-link-card" href="./whats-new-v5.0.0.html">
+        <h3>What's New in v5.0.0 →</h3>
+        <p>Full v5.0.0 narrative page (whats-new-v5.0.0.html).</p>
+    </a>
+    <a class="more-link-card" href="./README.md">
+        <h3>README.md →</h3>
+        <p>Reframed README with v5.0.0 framing applied.</p>
+    </a>
+    <a class="more-link-card" href="./CHANGELOG.md">
+        <h3>CHANGELOG.md →</h3>
+        <p>Full changelog with v4.x backfill and v5.0.0 entry.</p>
+    </a>
+    <a class="more-link-card" href="./standard/v5.0/release/RELEASE-NOTES-v5.0.0.md">
+        <h3>RELEASE-NOTES-v5.0.0.md →</h3>
+        <p>Versioned release notes at standard/v5.0/release/.</p>
+    </a>
+    <a class="more-link-card" href="./marketing-site-update.html">
+        <h3>marketing-site-update.html →</h3>
+        <p>Original fragments file (raw merge source).</p>
+    </a>
+</div>
+
+</body>
+</html>

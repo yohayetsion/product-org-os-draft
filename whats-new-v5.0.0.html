@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's New in v5.0.0 | Product Org OS</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23E94560'/%3E%3Cstop offset='100%25' stop-color='%234ECCA3'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpolygon points='100,10 178,55 178,145 100,190 22,145 22,55' fill='none' stroke='url(%23g)' stroke-width='3'/%3E%3Ccircle cx='100' cy='100' r='14' fill='url(%23g)'/%3E%3C/svg%3E">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #e94560;
+            --primary-dark: #c73e54;
+            --secondary: #4ecca3;
+            --accent: #0f3460;
+            --bg: #0f0f1a;
+            --bg-card: #16213e;
+            --bg-elevated: #0f3460;
+            --text: #ffffff;
+            --text-muted: #c8c8d0;
+            --text-dim: #8a8a9a;
+            --border: #2a2a4e;
+            --gradient-1: linear-gradient(135deg, #e94560 0%, #c73e54 100%);
+            --gradient-2: linear-gradient(135deg, #4ecca3 0%, #38b593 100%);
+            --gradient-3: linear-gradient(135deg, #ffc93c 0%, #f5a623 100%);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(15, 15, 26, 0.92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            padding: 0.85rem 1rem;
+        }
+        .nav-inner {
+            max-width: 1100px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .nav-logo {
+            display: flex; align-items: center; gap: 0.6rem;
+            text-decoration: none; font-size: 1.1rem; font-weight: 700;
+        }
+        .nav-logo-text {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .nav-back {
+            color: var(--text-muted); text-decoration: none;
+            font-size: 0.85rem; padding: 0.4rem 0.85rem;
+            border: 1px solid var(--border); border-radius: 6px;
+            transition: all 0.2s;
+        }
+        .nav-back:hover { border-color: var(--secondary); color: var(--secondary); }
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 8rem 1.5rem 4rem;
+        }
+        .badge {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: rgba(78, 204, 163, 0.08);
+            border: 1px solid rgba(78, 204, 163, 0.25);
+            border-radius: 999px;
+            padding: 0.4rem 1rem;
+            font-size: 0.8rem; font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+        .badge-dot {
+            width: 7px; height: 7px;
+            background: var(--secondary);
+            border-radius: 50%;
+        }
+        h1 {
+            font-size: clamp(1.85rem, 4vw, 2.6rem);
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.25rem;
+        }
+        h1 .accent {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        h2 {
+            font-size: clamp(1.35rem, 2.8vw, 1.75rem);
+            font-weight: 700;
+            margin-top: 3.25rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+            letter-spacing: -0.015em;
+        }
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            color: var(--text);
+        }
+        p {
+            color: var(--text-muted);
+            margin-bottom: 1.15rem;
+            font-size: 1.02rem;
+        }
+        p strong { color: var(--text); font-weight: 600; }
+        a { color: var(--secondary); text-decoration: none; border-bottom: 1px dotted var(--secondary); transition: color 0.2s; }
+        a:hover { color: var(--primary); border-bottom-color: var(--primary); }
+        code {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 0.1rem 0.4rem;
+            font-family: 'JetBrains Mono', 'Menlo', monospace;
+            font-size: 0.88em;
+            color: var(--secondary);
+        }
+        blockquote {
+            margin: 2rem 0;
+            padding: 1.5rem 1.75rem;
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.06), rgba(78, 204, 163, 0.06));
+            border-left: 3px solid var(--primary);
+            border-radius: 4px;
+        }
+        blockquote p {
+            margin: 0;
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--text);
+            font-weight: 500;
+        }
+        .canonical-claim {
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.1), rgba(78, 204, 163, 0.1));
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            border-radius: 8px;
+            padding: 1.75rem 2rem;
+            margin: 1.75rem 0;
+        }
+        .canonical-claim p {
+            font-size: 1.15rem;
+            color: var(--text);
+            font-weight: 600;
+            font-style: italic;
+            margin: 0;
+            line-height: 1.5;
+        }
+        .release-meta {
+            display: flex; flex-wrap: wrap; gap: 1.5rem;
+            padding: 1rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+            margin: 2rem 0 2.5rem; font-size: 0.85rem; color: var(--text-dim);
+        }
+        .release-meta strong { color: var(--text-muted); font-weight: 500; }
+        .footer {
+            margin-top: 5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            text-align: center;
+        }
+        .footer a { color: var(--text-dim); border-bottom-color: transparent; }
+        .footer a:hover { color: var(--secondary); border-bottom-color: var(--secondary); }
+        .citations {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1.25rem 1.5rem;
+            margin-top: 2rem;
+            font-size: 0.92rem;
+        }
+        .citations p { font-size: 0.92rem; margin-bottom: 0.75rem; }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="https://yohayetsion.github.io/product-org-os/" class="nav-logo">
+                <span class="nav-logo-text">Product Org OS</span>
+            </a>
+            <a href="https://yohayetsion.github.io/product-org-os/" class="nav-back">← Back to overview</a>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <div class="badge"><span class="badge-dot"></span>v5.0.0 Release</div>
+
+        <h1>What's New in <span class="accent">Product Org OS v5.0.0</span></h1>
+
+        <div class="release-meta">
+            <span><strong>Release</strong> v5.0.0</span>
+            <span><strong>Target date</strong> May 2026 (Phase 3 Day 10)</span>
+            <span><strong>License</strong> MIT (framework) + CC-BY 4.0 (Standard text)</span>
+        </div>
+
+        <h2>A standard alignment release</h2>
+
+        <p>Product Org OS v5.0.0 is a different kind of release. Most version bumps add features, polish flows, or harden runtime, and we have done plenty of that across the v3 and v4 lines. This one is about something else. v5.0.0 ships the runnable substrate behind a single, load-bearing claim: that the OS implements the Decision Provenance Standard's reporter protocol at Conformance Level 3.</p>
+
+        <p>If you have been following the Vision to Value project, that sentence is the technical surface of a much larger story. The Standard arrived in early 2026 as the open reference document for decision provenance, how organizations record the way decisions are actually made, in a form that auditors, counsel, and regulators can use as input when their work needs that record. The Standard sits in a five-artifact ecosystem: itself, the <em>Vision to Value</em> book (Volume One in the Executive Operating System Series), the Position Paper, the Manifesto Companion, and Product Org OS. Each artifact does a distinct job; this release closes the loop on the OS's job, which is to ship the runnable substrate that lets a Charter authored using the OS achieve Conformance Level 3 when the deployer's discipline matches.</p>
+
+        <p>That word, <em>deployer-side</em>, does load-bearing work in this release. The OS provides structural support for Level 3 conformance. Conformance itself is an achievement on the deployer's side, not a feature of the OS. We say that explicitly because the Standard says it explicitly: Section 6 of the Standard <em>grades</em> the Charter; the Standard does not <em>certify</em>. v5.0.0 builds the structural support; you build the discipline; the Standard provides the grading criteria. Each side does its part.</p>
+
+        <h2>Why a major version</h2>
+
+        <p>The version jump from v4.0.1 to v5.0.0, skipping the v4.x release line entirely, is the cleanest signal we could give you that this is not a feature drop. A point release on the 4.x line would have undersold what shipped: a new top-level directory carrying eight bundle artifacts, four mode-drift mitigation layers, the Reporter API with an OpenAPI 3.1 wire contract, the Layer 4 attestation schema with eight required sub-fields and four jurisdictional variants, and the Stream E test apparatus that defends the marketing claim. The Standard alignment is a major architectural commitment; the version stamp matches.</p>
+
+        <p>If you are upgrading from v4.x, the practical impact is small. The eight named structural-primitive skills retain their existing invocation syntax. The alignment is internal, in the form of new metadata blocks and conformance signal emission. The <code>standard/v5.0/</code> directory is additive; nothing was removed, nothing was renamed in your daily workflow. End users do not see breaking changes.</p>
+
+        <p>Deployers integrating with the Conformance Reporter API see a new wire contract. There is no prior version, so there is nothing to migrate from. The OpenAPI spec ships at version 1.1.0 (an additive enum extension over the originally-locked v1.0 contract closed a documented inconsistency between Layer 3 prose and the OpenAPI binding), and it is backward-compatible by design.</p>
+
+        <h2>What ships in the alignment bundle</h2>
+
+        <p>The new directory is <code>standard/v5.0/</code>, and it carries the runnable substrate. Two state machines define the lifecycles. The Charter machine has five forward-only states (<code>open</code> to <code>mode-declared</code> to <code>fields-required</code> to <code>fields-completed</code> to <code>closed</code>), with a <code>review-required</code> interrupt for cases where a record needs to pause and be reviewed before the lifecycle continues. The decision-record machine is the lighter sibling: <code>dispatched</code> / <code>drafted</code> / <code>closed</code> plus the same <code>review-required</code> interrupt. Together they define the operational shape of every decision and Charter the OS produces.</p>
+
+        <p>Schemas hold the data. Five required Article 50 disclosure metadata fields ship as a JSON Schema: the declaring authority, the AI system identity, the jurisdictional applicability, a pointer to the disclosure text, and the timestamp the disclosure was attached. Three optional fields cover edge cases (Mode 1 edge case flag, last-reviewed timestamp, disclosure provenance). Charter and decision-record objects each have their own JSON Schema (Draft 2020-12) so that any tool reading or writing them can validate against the Standard's structural contract.</p>
+
+        <p>The Conformance Reporter API is where the OS connects to the deployer's broader ecosystem. <code>POST /v2v/conformance/charter-escalation</code> is the single endpoint. The v1.1 amendment extended the <code>escalation_type</code> enum from eight to nine values to include <code>peer_reviewer_pool_underflow</code>, closing a gap between Layer 3's prose specification and the wire contract. The API uses OAuth 2.0 client_credentials, idempotency keys, sync acknowledgement (no async polling), a standardized error envelope, a 60-per-minute rate limit, and JSON Schema Draft 2020-12 validation. The full OpenAPI 3.1 spec ships with the bundle. A signal vocabulary file documents the named conformance signals across Levels 1, 2, and 3, with sample audit-cadence binding (15% rolling sample with first-100 and edge-case overrides, the cadence calibration the Standard's Section 6 references).</p>
+
+        <h2>The four-layer Mode-Drift mitigation</h2>
+
+        <p>This is the piece of v5.0.0 that took the most architectural work. Mode-drift is the risk that a record originally classified as Mode 1 (the lighter-weight classification) silently becomes a Mode 2 record over time without the classification being updated. This matters because Mode 2 records carry stricter disclosure and review obligations; a silent drift creates a gap between the record's actual content and its declared classification.</p>
+
+        <p>Four layers compose the mitigation.</p>
+
+        <p><strong>Layer 1</strong> is the statistical detection layer. It ships in v5.0.0 as scaffolding only. The classifier is in the bundle, but enforcement gates phase in starting at OS v5.0 lifecycle Week 7+, after the Layer C adversarial corpus is authored in Weeks 4-6. Until then, Layer 1 runs in detection-only mode, sampling at 15% baseline (with overrides for edge cases: 30% for <code>mode-1-with-embedded-mode-2-summary</code> Charters, every-record-until-first-100 for early lifecycle), with a 0.75 hard threshold and a 0.50-0.75 soft-flag band. The three-corpus design (Layer A: 200 Mode-2 records; Layer B: Section 4 + 0.5.D worked examples; Layer C: adversarial) is what you train the classifier against.</p>
+
+        <p><strong>Layer 2</strong> is the in-flow audit hook. It fires hot on day one of v5.0.0. Every Mode-1 record close triggers a 4-question Substantive-Authorship Challenge, captured in a 10-field audit trail. This is the layer that catches mode-drift in real time, before it has a chance to ossify in the historical record.</p>
+
+        <p><strong>Layer 3</strong> is the Mode-Confirmation Audit primitive. Also hot day-one. When a record needs review, the lifecycle's <code>review-required</code> interrupt activates, a peer reviewer is designated (per a 5-rule designation algorithm: pool minimum of 3, author and Charter-owner exclusions, recusal carve-out), and the record waits for sign-off before continuing. Layer 3 has firing authority for the <code>no_silent_mode_drift_in_sample</code> Level 2 conformance signal on Seam 3 cadence. That is, this layer is what enforces the Level 2 grading criterion at runtime.</p>
+
+        <p><strong>Layer 4</strong> is the named human-attestation layer. Hot day-one. The <code>mode_classification_attestation</code> is a structured object with eight required sub-fields (full name, role, employer, timestamp, jurisdiction enum, language version, verbatim signed text, capacity), and verbatim attestation language in four jurisdictional variants (United States, United Kingdom, European Union, Israel). General Counsel was load-bearing in the Layer 4 design. The structured-object form (rather than a scalar attestation field) was a deliberate refinement to make the attestation traceable, the jurisdictional variant explicit, and the verbatim signed text an immutable audit-trail element.</p>
+
+        <p>Together, Layers 2-4 fire hot on day one. Layer 1 is scaffolding-only at launch and activates as the lifecycle runs. R-001 (silent Mode 1 to Mode 2 drift) closes day one because the three load-bearing layers run hot from the start.</p>
+
+        <h2>The eight named structural-primitive skills</h2>
+
+        <p>These are the OS skills whose alignment to the Standard is load-bearing for the Conformance Level 3 claim.</p>
+
+        <p><code>/decision-charter</code> is the most directly aligned. Its output schema matches Standard Section 3 exactly: the 5-state lifecycle, the 15 required Charter fields, the 3-value mode-declaration enum. <code>/decision-record</code> aligns to Standard Section 5 and adds two new fields (<code>dispatch_mode</code> and <code>disclosure_metadata_pointer</code>) so that every decision record can trace back to the Charter that authorized it and the disclosure metadata that documents how it was disclosed. <code>/escalation-rule</code> integrates with Layer 3's Mode-Confirmation Audit primitive and is what fires when an escalation routes through the lifecycle.</p>
+
+        <p>The other five (<code>/ownership-map</code>, <code>/customer-value-trace</code>, <code>/collaboration-check</code>, <code>/scale-check</code>, <code>/phase-check</code>) emit conformance signals at Levels 1 and 2 where applicable. <code>/ownership-map</code> emits the <code>accountable_owner_named</code> Level 1 signal. The others emit Level 2 signal stubs that document the structural property each skill validates. The signals flow through the Reporter API to whatever conformance tracking system the deployer maintains.</p>
+
+        <p>The remaining ~125 ancillary OS skills are not load-bearing for the Conformance Level 3 claim. They receive Mode-awareness and disclosure-metadata field alignment in v5.1 (4-6 weeks post-launch). v5.1 improves coverage breadth, not conformance depth, meaning that even today, with only the eight named skills aligned, a Charter authored using v5.0.0 OS can achieve Level 3 when deployer-side discipline matches. v5.1 means more of your daily skills emit signals automatically; v5.0.0 means the eight skills that matter for Level 3 already do.</p>
+
+        <h2>The Standard alignment, in one sentence</h2>
+
+        <p>If you read just one paragraph from this page, read this one.</p>
+
+        <div class="canonical-claim">
+            <p>Product Org OS v5.0 implements the Decision Provenance Standard's reporter protocol at Conformance Level 3.</p>
+        </div>
+
+        <p>That sentence is the marketing-strong canonical claim, locked verbatim in the Conformance Framing Locked Language Table. Use it on technical surfaces. The lay-audience paraphrase, for non-technical readers (<em>engineered to meet the Decision Provenance Standard's highest current conformance level</em>), is an authorized variant scoped to LinkedIn day-one and press-release lay paragraphs.</p>
+
+        <p>What the canonical claim does not say is also load-bearing. It does not say the OS is "compliant" with the Standard, nor "certified," nor "regulator-ready," nor "audit-defensible." Those phrasings are forbidden across all v5.0.0 surfaces because they overclaim. The Standard does not confer compliance authority, there is no certification track, and no regulator has endorsed the Standard. What the canonical claim does say (<em>implements the reporter protocol at Conformance Level 3</em>) is precise: the OS ships the structural mechanism the Standard's Section 6 grades against at Level 3. Whether your specific deployment achieves Level 3 depends on you.</p>
+
+        <h2>What you do next</h2>
+
+        <p>If you are already using Product Org OS, the upgrade is straightforward. <code>git pull</code> the new v5.0.0 tag, run <code>python install.py</code> to refresh your local skills directory, and your eight named structural-primitive skills will pick up the new metadata block automatically. The <code>standard/v5.0/</code> directory is now visible in the repo root. Explore it at your own pace. Nothing in your existing workflow breaks.</p>
+
+        <p>If you are integrating with the Conformance Reporter API as a deployer, the OpenAPI 3.1 spec at <code>standard/v5.0/conformance/reporter-api.openapi.yaml</code> is the contract. The reference implementation pattern is documented in <code>standard/v5.0/conformance/reporter-api-spec.md</code>. Where you host the reporter endpoint is your call. The recommended pattern is deployer-hosted at a domain you control, with the OS as the client.</p>
+
+        <p>If you are new to the Vision to Value ecosystem, the Standard hub at the canonical URL (live at <a href="https://decisionprovenance.ai">decisionprovenance.ai</a> if domain attachment lands by Day 5-6 of Phase 3.5; fallback at <a href="https://executiveoperatingsystems.org/standard/">executiveoperatingsystems.org/standard/</a> if not) is the single best entry point. From there you can read the Standard's full text, download the schemas, find the citation guidance (the Standard is licensed under CC-BY 4.0 with attribution), and see the list of conforming tools and organizations. The list is empty at launch by design. It grows as deployers register their conforming Charters. Yours could be one of the first.</p>
+
+        <p>If you want the broader story, <em>Vision to Value: Volume One in the Executive Operating System Series</em> is the book that frames everything you have just read. Volume One is the CPO's seat. The series is open-author by design. Other volumes covering the executive seats whose decision authority the same organizational control architecture covers are invited contributions from authors with the lived experience to write them.</p>
+
+        <h2>The release calendar</h2>
+
+        <p>v5.0.0 ships at the Phase 3 Day 10 publish target. Day 8 is code freeze. Day 9 is Stream E documentation integration. Day 10 is tag <code>v5.0.0</code>, publish GitHub release, update marketing site, deploy this <code>whats-new-v5.0.0</code> page.</p>
+
+        <p>After launch, the v5.0 lifecycle runs across the following weeks. Weeks 1-3 are Layer 1 corpus assembly (Layer A 200 records, Layer B worked examples). Weeks 4-6 are Layer C adversarial corpus authoring. Week 7+ is Layer 1 enforcement-mode activation. Four to six weeks post-launch, v5.1.0 ships with ancillary skill alignment.</p>
+
+        <p>Watch the GitHub repo for v5.1 milestones. Or, more reliably, watch the <a href="https://decisionprovenance.ai">decisionprovenance.ai</a> registered-tools list as it grows.</p>
+
+        <h2>Citations</h2>
+
+        <div class="citations">
+            <p>This narrative inherits the citation pattern from the formal <a href="./standard/v5.0/release/RELEASE-NOTES-v5.0.0.md">RELEASE-NOTES-v5.0.0</a>.</p>
+            <p>Etsion, Y. (2026). <em>Product Org OS v5.0.0 — Vision to Value Standard Alignment Release</em>. CC-BY 4.0. <a href="https://github.com/yohayetsion/product-org-os/releases/tag/v5.0.0">github.com/yohayetsion/product-org-os/releases/tag/v5.0.0</a></p>
+            <p>Etsion, Y. (2026). <em>The Decision Provenance Standard, version 1.0</em>. Volume One reference standard, <em>Vision to Value: Volume One in the Executive Operating System Series</em>. CC-BY 4.0. <a href="https://decisionprovenance.ai">decisionprovenance.ai</a> (or <a href="https://executiveoperatingsystems.org/standard/">executiveoperatingsystems.org/standard/</a> as the registered alternate canonical URL).</p>
+        </div>
+
+        <div class="footer">
+            <p>Product Org OS · v5.0.0 · MIT (framework) + CC-BY 4.0 (Standard text) · <a href="https://github.com/yohayetsion/product-org-os">GitHub</a> · <a href="https://yohayetsion.github.io/product-org-os/">Overview</a></p>
+        </div>
+
+    </main>
+</body>
+</html>
